@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>블로그 게시판 화면</h1>
+    <a href="{% url 'blog:write' %}" class="btn btn-outline-success"><input type="submit" value="글 작성"></a>
+    <ul>
+        {% for post in posts %}
+            <a href="{% url 'blog:detail' pk=post.pk %}"><li>{{post.title}}</li></a>
+        {% endfor %}
+    </ul>
+{% endblock %}
